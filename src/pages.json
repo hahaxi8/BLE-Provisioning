@@ -1,0 +1,40 @@
+{
+  "pages": [
+    {
+      "path": "pages/scan/scan",
+      "style": {
+        "navigationBarTitleText": "设备配网"
+      }
+    },
+    {
+      "path": "pages/wifi/wifi",
+      "style": {
+        "navigationBarTitleText": "选择 Wi-Fi"
+      }
+    },
+    {
+      "path": "pages/password/password",
+      "style": {
+        "navigationBarTitleText": "填写配网信息"
+      }
+    },
+    {
+      "path": "pages/region/region",
+      "style": {
+        "navigationBarTitleText": "选择城市"
+      }
+    },
+    {
+      "path": "pages/result/result",
+      "style": {
+        "navigationBarTitleText": "配网中"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "设备配网",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F4F6F8"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": ["esnext", "dom"],
+    "types": ["@dcloudio/types"],
+
+    /**
+     * 允许 import 路径里写显式的 .ts 后缀。
+     *
+     * 为什么需要：本项目的纯逻辑层（protocol / errors / client）要能被
+     * `node test/run.js` 直接跑 —— Node 的 ESM 解析器要求显式扩展名，
+     * 不带后缀它找不到文件。而 @vue/tsconfig 默认用的是 bundler 解析，
+     * 允许写后缀就靠这个开关（它要求 noEmit，@vue/tsconfig 已经开了）。
+     * Vite 对这种写法也是支持的。
+     */
+    "allowImportingTsExtensions": true,
+
+    /** 没用的局部变量直接报错 —— 死代码在 TS 项目里最容易积累 */
+    "noUnusedLocals": true,
+
+    /** switch 分支忘记 break 是协议解析里的经典 bug，让编译器拦住 */
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+}

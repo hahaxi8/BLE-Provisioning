@@ -1,0 +1,421 @@
+/**
+ * 全局样式
+ * ---------------------------------------------------------------------------
+ * 由 App.vue 的 <style> 通过 @import 引入，编译后进入 app.wxss，所有页面可用。
+ * 这里只放「跨页面复用」的东西：卡片、按钮、列表行、信号格、空状态。
+ * 页面特有的布局写在各自 .vue 的 <style> 里。
+ *
+ * 尺寸一律用 rpx：750rpx = 屏幕宽度，所以 32rpx ≈ 16px，在大小屏上等比缩放。
+ */
+
+page {
+  background: #f4f6f8;
+  color: #1a1a1a;
+  font-size: 30rpx;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Helvetica,
+    'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------ 布局 */
+
+.page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 24rpx 24rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-bar {
+  padding: 24rpx 0 calc(24rpx + env(safe-area-inset-bottom));
+  background: transparent;
+}
+
+.flex-fill {
+  flex: 1;
+  min-height: 40rpx;
+}
+
+/* ------------------------------------------------------------------ 文字 */
+
+.h1 {
+  font-size: 48rpx;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.5rpx;
+}
+
+.h2 {
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: #8a9099;
+  font-size: 26rpx;
+}
+
+.text-danger {
+  color: #fa5151;
+}
+
+.text-brand {
+  color: #07c160;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.strong {
+  font-weight: 600;
+}
+
+.mono {
+  font-family: Menlo, Consolas, monospace;
+  background: #f2f4f7;
+  padding: 2rpx 10rpx;
+  border-radius: 8rpx;
+  color: #1a1a1a;
+}
+
+/* ------------------------------------------------------------------ 卡片 */
+
+.card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.03);
+}
+
+.card-tight {
+  padding: 8rpx 32rpx;
+}
+
+/* ------------------------------------------------------------------ 列表行 */
+
+.row {
+  display: flex;
+  align-items: center;
+  min-height: 108rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f2f5;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row-title {
+  font-size: 32rpx;
+  color: #1a1a1a;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.row-sub {
+  font-size: 24rpx;
+  color: #8a9099;
+  margin-top: 4rpx;
+}
+
+.row-extra {
+  margin-left: 20rpx;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.row-arrow {
+  width: 16rpx;
+  height: 16rpx;
+  border-right: 3rpx solid #c8ccd2;
+  border-bottom: 3rpx solid #c8ccd2;
+  transform: rotate(-45deg);
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------------ 按钮 */
+
+.btn {
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  box-sizing: border-box;
+  transition: opacity 0.15s ease;
+  padding: 0;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn-primary {
+  background: #07c160;
+  color: #ffffff;
+}
+
+.btn-primary.btn-active,
+.btn-primary:active {
+  background: #06ad56;
+}
+
+.btn-ghost {
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 1rpx solid #e2e5e9;
+}
+
+.btn-ghost:active {
+  background: #f7f8fa;
+}
+
+.btn-danger {
+  background: #fa5151;
+  color: #ffffff;
+}
+
+.btn.disabled {
+  opacity: 0.45;
+}
+
+.btn-link {
+  color: #576b95;
+  font-size: 28rpx;
+}
+
+/* ------------------------------------------------------------------ 信号格 */
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  height: 28rpx;
+}
+
+.bars .bar {
+  width: 6rpx;
+  margin-left: 4rpx;
+  border-radius: 2rpx;
+  background: #dfe3e8;
+}
+
+.bars .bar.on {
+  background: #07c160;
+}
+
+.bars .bar-1 { height: 8rpx; }
+.bars .bar-2 { height: 14rpx; }
+.bars .bar-3 { height: 20rpx; }
+.bars .bar-4 { height: 26rpx; }
+
+/* ------------------------------------------------------------------ 状态点 */
+
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+
+.dot-ok { background: #07c160; }
+.dot-warn { background: #ffc300; }
+.dot-error { background: #fa5151; }
+.dot-idle { background: #c8ccd2; }
+
+/* ------------------------------------------------------------------ 徽标 */
+
+.badge {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  line-height: 1.4;
+  background: #eef1f4;
+  color: #6b7280;
+}
+
+.badge-brand {
+  background: rgba(7, 193, 96, 0.12);
+  color: #07c160;
+}
+
+/* ---------------------------------------------------------------- 空状态 */
+
+.empty {
+  padding: 100rpx 40rpx;
+  text-align: center;
+  color: #8a9099;
+  font-size: 28rpx;
+}
+
+.empty-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 12rpx;
+  color: #1a1a1a;
+}
+
+.empty-desc {
+  font-size: 26rpx;
+  color: #8a9099;
+  line-height: 1.7;
+}
+
+/* ------------------------------------------------------------ 加载指示 */
+
+.spinner {
+  width: 44rpx;
+  height: 44rpx;
+  border: 5rpx solid #e2e5e9;
+  border-top-color: #07c160;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 20rpx;
+}
+
+.mini-spinner {
+  width: 32rpx;
+  height: 32rpx;
+  border: 4rpx solid #e2e5e9;
+  border-top-color: #07c160;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ------------------------------------------------------------ 分区标题 */
+
+.section-title {
+  font-size: 26rpx;
+  color: #8a9099;
+  padding: 8rpx 8rpx 16rpx;
+}
+
+/* ---------------------------------------------------------- 提示条 */
+
+.notice {
+  padding: 24rpx 28rpx;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  line-height: 1.6;
+  margin-bottom: 24rpx;
+}
+
+.notice-info {
+  background: rgba(7, 193, 96, 0.08);
+  color: #0a7a45;
+}
+
+.notice-warn {
+  background: rgba(255, 195, 0, 0.12);
+  color: #8a6100;
+}
+
+.notice-error {
+  background: rgba(250, 81, 81, 0.08);
+  color: #b3261e;
+}
+
+.notice-title {
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.notice-body {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.notice-advice {
+  margin-top: 12rpx;
+}
+
+.advice-item {
+  font-size: 26rpx;
+  line-height: 1.7;
+}
+
+.notice-action {
+  margin-top: 16rpx;
+}
+
+/* ---------------------------------------------------------- 排查报文 */
+
+.raw-box {
+  margin-top: 8rpx;
+}
+
+.raw-toggle,
+.detail-toggle {
+  text-align: center;
+  font-size: 24rpx;
+  color: #a0a6ad;
+  padding: 16rpx;
+}
+
+.raw-body,
+.detail-body {
+  background: #1f2430;
+  border-radius: 16rpx;
+  padding: 28rpx;
+}
+
+.raw-text,
+.detail-value.mono {
+  font-family: Menlo, Consolas, monospace;
+  font-size: 22rpx;
+  color: #9fe8b8;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.detail-label {
+  font-size: 22rpx;
+  color: #7d8798;
+  margin-bottom: 8rpx;
+  margin-top: 20rpx;
+}
+
+.detail-label:first-child {
+  margin-top: 0;
+}
+
+.detail-value {
+  font-size: 24rpx;
+  color: #ffffff;
+  line-height: 1.7;
+  word-break: break-all;
+}
+
+.raw-copy,
+.detail-copy {
+  margin-top: 16rpx;
+  color: #7fb3ff;
+}
